@@ -1,4 +1,4 @@
 flask-social-blueprint
 ======================
 
-An OAuth based authentication bluprint for flask. Easy to extend and override.
+An OAuth based authentication blueprint for flask. Easy to extend and override.

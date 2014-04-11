@@ -1,0 +1,8 @@
+Flask-Babel>=0.9
+Flask-OAuth>=0.12
+facebook-sdk>=0.4.0
+google-api-python-client>=1.2
+httplib2>=0.8
+oauth2>=1.5.211
+requests>=2.2.1
+twitter>=1.14.2

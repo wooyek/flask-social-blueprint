@@ -49,10 +49,7 @@ class SocialBlueprint(Blueprint):
         connection = self.connection_adapter.by_profile(profile)
         if not connection:
             return self.no_connection(profile, provider)
-
-        user = connection.get_user()
-        login_user(user)
-        return self.login_redirect(profile, provider)
+        return self.login_connection(connection, profile, provider)
 
     def no_connection(self, profile, provider):
         try:
@@ -60,9 +57,14 @@ class SocialBlueprint(Blueprint):
         except Exception as ex:
             logging.warn(ex, exc_info=True)
             do_flash(_("Could not register: {}").format(ex.message), "warning")
+            abort(500)
             return self.login_failed_redirect(profile, provider)
 
+        return self.login_connection(connection, profile, provider)
+
+    def login_connection(self, connection, profile, provider):
         user = connection.get_user()
+        assert user, "Connection did not returned a User instance"
         login_user(user)
         return self.login_redirect(profile, provider)
 

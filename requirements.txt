@@ -5,4 +5,3 @@ google-api-python-client>=1.2
 httplib2>=0.8
 oauth2>=1.5.211
 requests>=2.2.1
-twitter>=1.14.2

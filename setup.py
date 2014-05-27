@@ -19,8 +19,7 @@ setup_kwargs = {
 
     # metadata for upload to PyPI
     'author': "Janusz Skonieczny",
-    'author_email': "js@bravelabs.pl",
-    # 'author_email': "",
+    'author_email': "js<ą>bravelabs.pl",
     'description': "An OAuth based authentication blueprint for flask. Easy to extend and override",
     'long_description': long_description,
     'license': "MIT",

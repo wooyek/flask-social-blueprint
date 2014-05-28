@@ -94,6 +94,7 @@ SOCIAL_BLUEPRINT = {
         # Client ID
         'consumer_key': '6f6…',
         # Client Secret
+        'consumer_secret': 'bDG…'
     },
 }
 

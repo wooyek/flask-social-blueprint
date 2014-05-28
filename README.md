@@ -26,14 +26,40 @@ and it's easily overridable without forking everything, it's plain simple
 OOP no that single module based provider search crap.
 
 To extend it just write a provider class anywhere you want, and setup it's
-client id and secret in the flask settings like this:
+client id and secret in the flask settings providing an import path like this:
 
+```python
+SOCIAL_BLUEPRINT = {
+    # https://developers.facebook.com/apps/
     "flask_social_blueprint.providers.Facebook": {
+        # App ID
         'consumer_key': '197…',
+        # App Secret
         'consumer_secret': 'c956c1…'
     },
+    "flask_social_blueprint.providers.Twitter": {
+        # Your access token from API Keys tab
+        'consumer_key': 'bkp…',
+        # access token secret
+        'consumer_secret': 'pHUx…'
+    },
+    "flask_social_blueprint.providers.Google": {
+        # Client ID
+        'consumer_key': '797….apps.googleusercontent.com',
+        # Client secret
+        'consumer_secret': 'bDG…'
+    },
+    # https://github.com/settings/applications/new
+    "flask_social_blueprint.providers.Github": {
+        # Client ID
+        'consumer_key': '6f6…',
+        # Client Secret
+        'consumer_secret': '1a9…'
+    },
+}
+```
 
-Done!
+Done! No
 
 ## What's missing?
 

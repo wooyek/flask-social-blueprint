@@ -14,6 +14,7 @@ import logging
 import os
 
 SRC_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+PRODUCTION = not os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
 
 # ============================================================================
 #  a flask settings
@@ -67,23 +68,34 @@ SERVER_EMAIL = 'Flask-SocialBlueprint <support@example.com>'
 
 # Flask-SocialBlueprint
 # https://github.com/wooyek/flask-social-blueprint
+# example
 SOCIAL_BLUEPRINT = {
+    # https://developers.facebook.com/apps/
     "flask_social_blueprint.providers.Facebook": {
+        # App ID
         'consumer_key': '197…',
+        # App Secret
         'consumer_secret': 'c956c1…'
     },
     "flask_social_blueprint.providers.Twitter": {
+        # Your access token from API Keys tab
         'consumer_key': 'bkp…',
+        # access token secret
         'consumer_secret': 'pHUx…'
     },
     "flask_social_blueprint.providers.Google": {
+        # Client ID
         'consumer_key': '797….apps.googleusercontent.com',
+        # Client secret
         'consumer_secret': 'bDG…'
     },
+    # https://github.com/settings/applications/new
     "flask_social_blueprint.providers.Github": {
+        # Client ID
         'consumer_key': '6f6…',
-        'consumer_secret': '1a9…'
+        # Client Secret
     },
 }
 
-from website.settings_prd import *
+if PRODUCTION:
+    from website.settings_prd import *

@@ -191,7 +191,7 @@ class Github(BaseProvider):
             "provider": "Github",
             "profile_id": str(profile["id"]),
             "username": profile.get('login'),
-            "email": emails[0],
+            "email": emails[0].get("email"),
             "access_token": access_token,
             "secret": None,
             "first_name": name_split[0],

@@ -99,3 +99,5 @@ $RECYCLE.BIN/
 *.msp
 
 .pve/
+example/sqla/website/settings_prd.py
+example/gae/website/settings_prd.py

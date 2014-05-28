@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="google-appengine-python" name="Google App Engine (Python)">
+      <configuration>
+        <option name="rootFolder" value="D:\projekty\github\flask-social-blueprint\example\gae" />
+        <option name="sdkFolder" value="D:\usr\py\Google\google_appengine" />
+        <option name="templatesFolder" value="" />
+        <option name="oauth2" value="true" />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
@@ -9,6 +19,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 2.7.5 virtualenv at D:\projekty\github\flask-social-blueprint\.pve" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Google App Engine SDK" level="project" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

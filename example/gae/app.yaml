@@ -1,0 +1,16 @@
+application: flask-social-blueprint
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+default_expiration: '3650d'
+
+env_variables:
+  TMP: C:\Users\WOOYEK\AppData\Local\Temp
+
+
+handlers:
+
+- url: /.*
+  script: main.app

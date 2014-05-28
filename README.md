@@ -37,12 +37,14 @@ SOCIAL_BLUEPRINT = {
         # App Secret
         'consumer_secret': 'c956c1…'
     },
+    # https://apps.twitter.com/app/new
     "flask_social_blueprint.providers.Twitter": {
         # Your access token from API Keys tab
         'consumer_key': 'bkp…',
         # access token secret
         'consumer_secret': 'pHUx…'
     },
+    # https://console.developers.google.com/project
     "flask_social_blueprint.providers.Google": {
         # Client ID
         'consumer_key': '797….apps.googleusercontent.com',

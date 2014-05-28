@@ -11,27 +11,26 @@ To run this example:
     - http://dev.example.com:5055/_social/callback/Github
 3. Put them in the `website/settings.py` in the `SOCIAL_BLUEPRINT` settings
 4. Install package dependencies
-5. Initialize database `python manage.py initdb`
-5. Run web server `python main.py`
-6. Open <http://dev.example.com:5055> your browser
+5. Run app engine development server
+6. Open http://dev.example.com:5055 your browser
 
 ## Twitter
 
-Create new appliaction here: <https://apps.twitter.com/app/new>
+Create new application here: https://apps.twitter.com/app/new
 
 ## Google
 
-1. Create new project here: <https://console.developers.google.com/project>
+1. Create new project here: https://console.developers.google.com/project
 2. In APIs & auth > Credentials create Client ID
 3. Update consent screen details, at least product name, home page and email address
 
 ## Github
 
-Create new application here: <https://github.com/settings/applications/new>
+Create new application here: https://github.com/settings/applications/new
 
 ## Facebook
 
-Create new application here: <https://developers.facebook.com/apps/>
+Create new application here: https://developers.facebook.com/apps/
 
 Setup `Valid OAuth redirect URIs` in Settings > Advanced > Security
 

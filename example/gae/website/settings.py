@@ -68,7 +68,6 @@ SERVER_EMAIL = 'Flask-SocialBlueprint <support@example.com>'
 
 # Flask-SocialBlueprint
 # https://github.com/wooyek/flask-social-blueprint
-# example
 SOCIAL_BLUEPRINT = {
     # https://developers.facebook.com/apps/
     "flask_social_blueprint.providers.Facebook": {
@@ -77,12 +76,14 @@ SOCIAL_BLUEPRINT = {
         # App Secret
         'consumer_secret': 'c956c1…'
     },
+    # https://apps.twitter.com/app/new
     "flask_social_blueprint.providers.Twitter": {
         # Your access token from API Keys tab
         'consumer_key': 'bkp…',
         # access token secret
         'consumer_secret': 'pHUx…'
     },
+    # https://console.developers.google.com/project
     "flask_social_blueprint.providers.Google": {
         # Client ID
         'consumer_key': '797….apps.googleusercontent.com',
@@ -94,7 +95,7 @@ SOCIAL_BLUEPRINT = {
         # Client ID
         'consumer_key': '6f6…',
         # Client Secret
-        'consumer_secret': 'bDG…'
+        'consumer_secret': '1a9…'
     },
 }
 

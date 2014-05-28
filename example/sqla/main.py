@@ -28,7 +28,7 @@ try:
 except ImportError:
     # in case we run it from the repo, put that repo on path
     import sys
-    sys.path.append(os.path.join(os.path.dirname(SRC_DIR), "src"))
+    sys.path.append(os.path.join(os.path.dirname(SRC_DIR), "../../src"))
 
 app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLDER, static_url_path=STATIC_URL)
 app.debug = DEBUG

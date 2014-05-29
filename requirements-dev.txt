@@ -1,0 +1,3 @@
+# extra development dependencies
+pypandoc>=0.8.2
+nose>=1.3.3

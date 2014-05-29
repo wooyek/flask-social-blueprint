@@ -9,9 +9,9 @@ from flask_script import Manager, Command
 class InitDatabase(Command):
     """Initialize database"""
     def run(self):
-        logging.debug("db.reate_all")
-        from website.database import db
-        db.create_all()
+        import website.database
+        website.database.init_db()
+
 
 manager = Manager(app)
 manager.add_command('initdb', InitDatabase())

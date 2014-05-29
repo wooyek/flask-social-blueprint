@@ -3,6 +3,8 @@ flask-social-blueprint
 
 An OAuth based authentication blueprint for flask. Easy to extend and override.
 
+https://github.com/wooyek/flask-social-blueprint
+
 ## Demo
 
 Based on `example/gae` codebase with secret `settings_prd.py` provided for
@@ -68,15 +70,21 @@ Done! No
 This is just authentication blueprint there is no templates, models and stuff
 that you would want to customize yourself.
 
+## Examples
+
 The example has a working model and templates, has a bunch of dependencies like
 Flask-SLQAlchemy, you can take it as a wire frame modify and build your app
 with that.
+
+Examples are made from some existing apps, they may contain more stuff that's
+really needed to showcase this module. When in trouble just ask questions.
 
 Or just drop in this solution inside your working Flask app.
 I should not create any conflicts with existing stuff. You maybe required to write
 an adapter for your User model and SocialConnection model (or similar) but
 that's 3 functions for the adapter. Any User model requirements come
 from Flask_security.
+
 
 ## What to do more?
 

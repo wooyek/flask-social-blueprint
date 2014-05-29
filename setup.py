@@ -1,18 +1,23 @@
 # coding=utf-8
 # Copyright 2014 Janusz Skonieczny
-
+import sys
 import os
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
-
-install_requires = parse_requirements(os.path.join(os.path.dirname(__file__), "requires.txt"))
-
 import pypandoc
+
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+SRC_DIR = os.path.join(ROOT_DIR, 'src')
+sys.path.append(SRC_DIR)
+
+install_requires = parse_requirements(os.path.join(os.path.dirname(__file__), "requirements.txt"))
 long_description = pypandoc.convert('README.md', 'rst', format='md')
+
+from flask_social_blueprint import __version__ as version
 
 setup_kwargs = {
     'name': "flask-social-blueprint",
-    'version': "0.5.1",
+    'version': version,
     'packages': find_packages("src"),
     'package_dir': {'': 'src'},
     'install_requires': [str(r.req) for r in install_requires],
@@ -40,6 +45,7 @@ setup_kwargs = {
         'Topic :: Software Development :: Libraries :: Application Frameworks',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    'test_suite': 'flask_social_blueprint.tests.suite'
 }
 
 setup(**setup_kwargs)

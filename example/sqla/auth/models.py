@@ -157,5 +157,5 @@ def init_app(app):
     security = security.init_app(app, SQLAlchemyUserDatastore(db, User, Role))
     security.send_mail_task(send_mail)
 
-    from flask_social_blueprint import SocialBlueprint
+    from flask_social_blueprint.core import SocialBlueprint
     SocialBlueprint.init_bp(app, SocialConnection, url_prefix="/_social")

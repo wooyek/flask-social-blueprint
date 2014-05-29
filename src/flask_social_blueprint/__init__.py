@@ -57,7 +57,6 @@ class SocialBlueprint(Blueprint):
         except Exception as ex:
             logging.warn(ex, exc_info=True)
             do_flash(_("Could not register: {}").format(ex.message), "warning")
-            abort(500)
             return self.login_failed_redirect(profile, provider)
 
         return self.login_connection(connection, profile, provider)

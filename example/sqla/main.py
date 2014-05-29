@@ -67,9 +67,9 @@ if app.debug:
     app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
 if __name__ == "__main__":
-    # for coonvienience in setting up OAuth ids and secretes we use the example.com domain.
+    # for convenience in setting up OAuth ids and secretes we use the example.com domain.
     # This should allow you to circumvent limits put on localhost/127.0.0.1 usage
-    # Just map dev.example.com on 127.0.0.1 ip adress.
+    # Just map dev.example.com on 127.0.0.1 ip address.
     logging.debug("PRODUCTION: %s" % PRODUCTION)
     logging.debug("app.debug: %s" % app.debug)
     logging.debug("app.testing: %s" % app.testing)

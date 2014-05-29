@@ -67,6 +67,9 @@ class User(db.Model, UserMixin):
         encoded = hashlib.md5(email).hexdigest()
         return "https://secure.gravatar.com/avatar/%s.png" % encoded
 
+    def social_connections(self):
+        return SocialConnection.query.filter(SocialConnection.user_id == self.id).all()
+
 # @login_manager.user_loader
 # def load_user(user_id):
 #     return None #User.get(user_id)
@@ -105,12 +108,14 @@ class SocialConnection(db.Model):
         if not user or user.is_anonymous():
             email = profile.data.get("email")
             if not email:
-                logging.warning("Social connection could not provide email")
-                raise Exception(_("Social connection could not provide email"))
+                msg = "Cannot create new user, authentication provider did not not provide email"
+                logging.warning(msg)
+                raise Exception(_(msg))
             conflict = User.query.filter(User.email == email).first()
             if conflict:
-                msg = _("Cannot create new user, email {} is already used. Login and then connect external profile.")
-                raise Exception(msg.format(email))
+                msg = _("Cannot create new user, email {} is already used. Login and then connect external profile.").format(email)
+                logging.warning(msg)
+                raise Exception(msg)
 
             now = datetime.now()
             user = User(

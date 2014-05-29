@@ -99,5 +99,6 @@ SOCIAL_BLUEPRINT = {
     },
 }
 
+# Settings with secrets 
 if PRODUCTION:
     from website.settings_prd import *

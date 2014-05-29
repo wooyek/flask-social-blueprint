@@ -99,12 +99,14 @@ class SocialConnection(ndb.Model):
         if not user or user.is_anonymous():
             email = profile.data.get("email")
             if not email:
-                logging.warning("Social connection could not provide email")
-                raise Exception(_("Social connection could not provide email"))
+                msg = "Cannot create new user, authentication provider did not not provide email"
+                logging.warning(msg)
+                raise Exception(_(msg))
             conflict = User.query(User.email == email).get()
             if conflict:
-                msg = _("Cannot create new user, email {} is already used. Login and then connect external profile.")
-                raise Exception(msg.format(email))
+                msg = _("Cannot create new user, email {} is already used. Login and then connect external profile.").format(email)
+                logging.warning(msg)
+                raise Exception(msg)
 
             now = datetime.now()
             user = User(

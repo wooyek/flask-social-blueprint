@@ -21,7 +21,6 @@ setup_kwargs = {
     #     '': ['requirements.txt']
     # },
 
-    # metadata for upload to PyPI
     'author': "Janusz Skonieczny",
     'author_email': "js@bravelabs.pl",
     'description': "An OAuth based authentication blueprint for flask. Easy to extend and override",

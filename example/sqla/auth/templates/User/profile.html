@@ -22,5 +22,34 @@
                 <a class="btn btn-primary btn-lg" href="{{ url_for_security('logout') }}">Logout</a>
             </div>
         </div>
+        {% with connections=current_user.social_connections() %}
+            {% if connections %}
+                <div class="row">
+                    <div class="text-center mg-btm">
+                        <h2 class="text-center">Connections</h2>
+                        {% for connection in connections %}
+                            <a href="{{ connection.profile_url }}">
+                                <img src="{{ connection.image_url }}" alt="" width="50" height="50" class="img-circle">
+                            </a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            {% endif %}
+        {% endwith %}
+        <div class="row">
+            <div class="text-center">
+                <h2 class="text-center">Connect another account</h2>
+
+                <div class="">
+                    <a href="{{ url_for('social.login', provider='Facebook') }}" class="social-facebook btn btn-primary btn-lg"><i class="fa fa-2x fa-facebook-square"></i></a>
+                    <a href="{{ url_for('social.login', provider='Google') }}" class="social-google btn btn-primary btn-lg"><i class="fa fa-2x fa-google-plus"></i></a>
+                    <a href="{{ url_for('social.login', provider='Github') }}" class="social-github btn btn-primary btn-lg"><i class="fa fa-2x fa-github"></i></a>
+                    <a href="{{ url_for('social.login', provider='Twitter') }}" class="social-twitter btn btn-primary btn-lg"><i class="fa fa-2x fa-twitter"></i></a>
+                </div>
+
+            </div>
+        </div>
     </div>
 {% endblock %}

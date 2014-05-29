@@ -5,10 +5,10 @@ import os
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
 
-install_requires = parse_requirements(os.path.join(os.path.dirname(__file__), "requirements.txt"))
+install_requires = parse_requirements(os.path.join(os.path.dirname(__file__), "requires.txt"))
 
-with open('README.md') as readme:
-    long_description = readme.read()
+import pypandoc
+long_description = pypandoc.convert('README.md', 'rst', format='md')
 
 setup_kwargs = {
     'name': "flask-social-blueprint",

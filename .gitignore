@@ -101,3 +101,4 @@ $RECYCLE.BIN/
 .pve/
 example/sqla/website/settings_prd.py
 example/gae/website/settings_prd.py
+example/sqla/website/settings_local.py

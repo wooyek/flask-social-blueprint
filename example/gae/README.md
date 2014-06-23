@@ -23,6 +23,7 @@ Create new application here: https://apps.twitter.com/app/new
 1. Create new project here: https://console.developers.google.com/project
 2. In APIs & auth > Credentials create Client ID
 3. Update consent screen details, at least product name, home page and email address
+4. Enable Google+ API
 
 ## Github
 

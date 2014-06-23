@@ -36,8 +36,8 @@ app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLD
 app.debug = DEBUG
 app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 
-from website import settings
-app.config.from_object(settings)
+import website.settings
+app.config.from_object(website.settings)
 
 # -------------------------------------------------------------
 # Custom add ons

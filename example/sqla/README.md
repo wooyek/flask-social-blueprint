@@ -15,6 +15,27 @@ To run this example:
 5. Run web server `python main.py`
 6. Open <http://dev.example.com:5055> your browser
 
+## Twitter
+
+Create new application here: https://apps.twitter.com/app/new
+
+## Google
+
+1. Create new project here: https://console.developers.google.com/project
+2. In APIs & auth > Credentials create Client ID
+3. Update consent screen details, at least product name, home page and email address
+4. Enable Google+ API
+
+## Github
+
+Create new application here: https://github.com/settings/applications/new
+
+## Facebook
+
+Create new application here: https://developers.facebook.com/apps/
+
+Setup `Valid OAuth redirect URIs` in Settings > Advanced > Security
+
 # Development environment setup for beginners
 
 ## Linux

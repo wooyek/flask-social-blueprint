@@ -63,7 +63,7 @@ SOCIAL_BLUEPRINT = {
 }
 ```
 
-Done! No
+Done!
 
 ## What's missing?
 

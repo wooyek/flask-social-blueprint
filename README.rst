@@ -68,7 +68,7 @@ like this:
         },
     }
 
-Done! No
+Done!
 
 What’s missing?
 ---------------

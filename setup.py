@@ -11,7 +11,8 @@ SRC_DIR = os.path.join(ROOT_DIR, 'src')
 sys.path.append(SRC_DIR)
 
 install_requires = parse_requirements(os.path.join(os.path.dirname(__file__), "requirements.txt"))
-long_description = pypandoc.convert('README.md', 'rst', format='md')
+with open("README.rst") as readme:
+    long_description = readme.read()
 
 from flask_social_blueprint import __version__ as version
 

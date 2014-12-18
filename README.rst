@@ -7,8 +7,11 @@ override.
 https://github.com/wooyek/flask-social-blueprint
 
 
-**See example/mongodb/README.rst for MongoDB Release**
+See example/mongodb/README.rst for MongoDB Release
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
+Screenshots
+-----------
 
 .. image:: login-form.png
    :alt: Login Form

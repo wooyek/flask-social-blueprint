@@ -2,6 +2,11 @@
 Flask Social Blueprint MongoDB Example
 ======================================
 
+.. contents:: Table of Contents
+
+Screenshots
+-----------
+
 .. image:: login-form.png
    :alt: Login Form
    :align: center
@@ -87,13 +92,9 @@ Manuel installation
 Run with Dockerfile
 -------------------
 
-Buid and Run
-::::::::::::
-
 ::
 
-
-    curl -O -k https://raw.githubusercontent.com/srault95/docker-proxy-api/master/Dockerfile
+    $ curl -O -k https://raw.githubusercontent.com/srault95/flask-social-blueprint/mongodb/example/mongodb/Dockerfile
 
     $ docker build -t mysocialflask .
     

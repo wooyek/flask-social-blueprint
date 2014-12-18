@@ -6,6 +6,19 @@ override.
 
 https://github.com/wooyek/flask-social-blueprint
 
+
+**See ``example/mongodb/README.rst`` for MongoDB Release**
+
+
+.. image:: login-form.png
+   :alt: Login Form
+   :align: center
+
+
+.. image:: user-profile.png
+   :alt: User Profile
+   :align: center
+
 Demo
 ----
 

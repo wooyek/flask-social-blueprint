@@ -2,7 +2,7 @@
 Flask Social Blueprint MongoDB Example
 ======================================
 
-.. contents:: Table of Contents
+.. contents:: **Table of Contents**
 
 Screenshots
 -----------
@@ -76,6 +76,12 @@ Setup `Valid OAuth redirect URIs` in Settings > Advanced > Security
 Manuel installation
 -------------------
 
+.. note::
+
+    Require MongoDB server started
+    
+    Please modify setting or environment for ip:port on MongoDB server
+
 ::
 
     $ git clone https://github.com/srault95/flask-social-blueprint.git -b mongodb    
@@ -85,6 +91,9 @@ Manuel installation
     $ cd flask-social-blueprint/example/mongodb
 
     $ pip install -r requirements.txt 
+
+    # edit and update settings_local.py file
+    $ vi settings_local.py
     
     $ python main.py
     
@@ -104,20 +113,26 @@ Run with Dockerfile
     # Start Mongodb Server    
     $ docker start mongodb
 
-Run Server with settings_local.py file::
+Run Server with settings_local.py file
+::::::::::::::::::::::::::::::::::::::
 
-    $ cd flask-social-blueprint/example/mongodb
+::
+
+    $ curl -O -k https://raw.githubusercontent.com/srault95/flask-social-blueprint/mongodb/example/mongodb/settings_local.py
 
     # edit and update settings_local.py file
     $ vi settings_local.py
     
     $ docker run -d --name socialflask -p 5055:5055 \
-      -v `pwd`/settings_local.py:/data/example/mongodb/settings_local.py \
+      -v `pwd`/settings_local.py:/data/flask-social-blueprint/example/mongodb/settings_local.py \
       --link mongodb:mongodb mysocialflask
 
     # Open browser in : http://YOUR_ADDRESS:5055/admin and auth with social buttons
     
-Run Server with environment::
+Run Server with environment
+:::::::::::::::::::::::::::
+
+::
 
     All keys is not required. Just one or several ! 
     
@@ -140,3 +155,21 @@ http://YOUR_FLASK_SOCIAL_IP:5055/admin
    :alt: Admin Center
    :align: center
 
+
+Environment variables
+---------------------
+
+::
+
+    MONGODB_DATABASE=flask_social_blueprint
+    
+    MONGODB_PORT_27017_TCP_ADDR=127.0.0.1
+    
+    MONGODB_PORT_27017_TCP_PORT=27017
+    
+    # No set default
+    MONGODB_USERNAME=None
+
+    # No set default
+    MONGODB_PASSWORD=None
+    

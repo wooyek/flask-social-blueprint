@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='screen.css') }}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+
+
+    <link rel="home" href="/"/>
+
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+    <meta name="author" content="https://plus.google.com/+JanuszSkonieczny"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="index, follow, noarchive"/>
+    <meta name="googlebot" content="noarchive"/>
+    <meta name="google-site-verification" content=""/>
+
+    <!-- TODO: Create your own custom Modernizr build: www.modernizr.com/download/ -->
+</head>
+<body>
+
+{% block body %} {% endblock %}
+
+<footer style="">
+    <div class="container">
+        <div class="text-center">
+            <p>
+                <iframe src="http://ghbtns.com/github-btn.html?user=wooyek&repo=flask-social-blueprint&type=watch&count=true&size=large" allowtransparency="true" frameborder="0"
+                        scrolling="0" width="140" height="30"></iframe>
+                <iframe src="http://ghbtns.com/github-btn.html?user=wooyek&repo=flask-social-blueprint&type=fork&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0"
+                        width="140" height="30"></iframe>
+            </p>
+            <p><a href="https://plus.google.com/+JanuszSkonieczny?rel=author">Janusz Skonieczny</a></p>
+        </div>
+    </div>
+    <a href="https://github.com/wooyek/flask-social-blueprint"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                                                    src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+                                                                    alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

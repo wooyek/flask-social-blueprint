@@ -24,7 +24,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN git clone https://github.com/srault95/flask-social-blueprint.git -b mongodb
 
-WORKDIR /data/example/mongodb
+WORKDIR /data/flask-social-blueprint/example/mongodb
 
 RUN pip install -r requirements.txt
 

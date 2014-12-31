@@ -6,22 +6,6 @@ override.
 
 https://github.com/wooyek/flask-social-blueprint
 
-
-See example/mongodb/README.rst for MongoDB Release
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Screenshots
------------
-
-.. image:: login-form.png
-   :alt: Login Form
-   :align: center
-
-
-.. image:: user-profile.png
-   :alt: User Profile
-   :align: center
-
 Demo
 ----
 
@@ -44,8 +28,8 @@ How it’s any better?
 --------------------
 
 This blueprint plays nicely with `Flask-Security`_ and it’s easily
-overridable without forking everything, it’s plain simple OOP no that
-single module based provider search crap.
+overridable without forking everything, it’s plain simple OOP not that
+`module based provider search crap`_.
 
 To extend it just write a provider class anywhere you want, and setup
 it’s client id and secret in the flask settings providing an import path
@@ -109,11 +93,32 @@ write an adapter for your User model and SocialConnection model (or
 similar) but that’s 3 functions for the adapter. Any User model
 requirements come from Flask\_security.
 
+1. for `SQLAlchemy <example/sqla/README.rst>`_
+2. for `Google App Engine <example/gae/README.rst>`_
+3. for `MongoDB <example/mongodb/README.rst>`_
+
 What to do more?
 ----------------
 
 1. More providers
 2. Make Flask-Security dependency optional
 
+Demo screen shots
+-----------------
+
+The core of this module has no GUI, but examples have a nice login
+and profile page to show it it works. Checkout the `demo`_.
+
+.. image:: docs/login-form.png
+   :alt: Login Form
+   :align: center
+
+
+.. image:: docs/user-profile.png
+   :alt: User Profile
+   :align: center
+
 .. _Flask-Social: https://pythonhosted.org/Flask-Social/
 .. _Flask-Security: https://pythonhosted.org/Flask-Security/
+.. _demo: http://flask-social-blueprint.appspot.com/
+.. _module based provider search crap: https://github.com/mattupstate/flask-social/blob/develop/flask_social/core.py#L127

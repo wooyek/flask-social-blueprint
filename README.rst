@@ -10,7 +10,7 @@ Demo
 ----
 
 Based on ``example/gae`` codebase with secret ``settings_prd.py``
-provided for proper OAuth providers configuration
+provided for proper OAuth providers configuration.
 
 http://flask-social-blueprint.appspot.com/
 
@@ -28,8 +28,8 @@ How it’s any better?
 --------------------
 
 This blueprint plays nicely with `Flask-Security`_ and it’s easily
-overridable without forking everything, it’s plain simple OOP not that
-`module based provider search crap`_.
+overridable without forking everything, it’s `plain simple OOP`_ not that
+`module based provider`_ `function search crap`_.
 
 To extend it just write a provider class anywhere you want, and setup
 it’s client id and secret in the flask settings providing an import path
@@ -80,21 +80,21 @@ Examples
 --------
 
 The example has a working model and templates, has a bunch of
-dependencies like Flask-SLQAlchemy, you can take it as a wire frame
+dependencies like `Flask-SLQAlchemy`_, you can take it as a wire frame
 modify and build your app with that.
 
 Examples are made from some existing apps, they may contain more stuff
 that’s really needed to showcase this module. When in trouble just ask
 questions.
 
-Or just drop in this solution inside your working Flask app. I should
+Or just drop in this solution inside your working Flask app. It should
 not create any conflicts with existing stuff. You maybe required to
 write an adapter for your User model and SocialConnection model (or
-similar) but that’s 3 functions for the adapter. Any User model
-requirements come from Flask\_security.
+similar) but that’s 3 functions for the adapter. All User model
+requirements come from `Flask-security`_.
 
-1. for `SQLAlchemy <example/sqla/README.rst>`_
-2. for `Google App Engine <example/gae/README.rst>`_
+1. for `SQLAlchemy <example/sqla/README.md>`_
+2. for `Google App Engine <example/gae/README.md>`_
 3. for `MongoDB <example/mongodb/README.rst>`_
 
 What to do more?
@@ -109,16 +109,19 @@ Demo screen shots
 The core of this module has no GUI, but examples have a nice login
 and profile page to show it it works. Checkout the `demo`_.
 
-.. image:: docs/login-form.png
-   :alt: Login Form
+.. image:: https://github.com/wooyek/flask-social-blueprint/raw/master/docs/login-form.png
+   :alt: Flask social blueprint login form example
    :align: center
 
 
-.. image:: docs/user-profile.png
-   :alt: User Profile
+.. image:: https://github.com/wooyek/flask-social-blueprint/raw/master/docs/user-profile.png
+   :alt: Flask social blueprint user profile example
    :align: center
 
 .. _Flask-Social: https://pythonhosted.org/Flask-Social/
 .. _Flask-Security: https://pythonhosted.org/Flask-Security/
+.. _Flask-SLQAlchemy: https://pythonhosted.org/Flask-SQLAlchemy/
 .. _demo: http://flask-social-blueprint.appspot.com/
-.. _module based provider search crap: https://github.com/mattupstate/flask-social/blob/develop/flask_social/core.py#L127
+.. _plain simple OOP: src/flask_social_blueprint/providers.py
+.. _module based provider: https://github.com/mattupstate/flask-social/blob/develop/flask_social/core.py#L127
+.. _function search crap: https://github.com/mattupstate/flask-social/tree/develop/flask_social/providers

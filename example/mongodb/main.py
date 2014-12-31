@@ -36,27 +36,29 @@ app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLD
 app.debug = DEBUG
 app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 
-import website.settings
-app.config.from_object(website.settings)
+import settings
+app.config.from_object(settings)
 
 # -------------------------------------------------------------
 # Custom add ons
 # -------------------------------------------------------------
 
-from website.database import db
-db.init_app(app)
+#from website.database import db
+#db.init_app(app)
 
 # Enable i18n and l10n
 from flask_babel import Babel
 babel = Babel(app)
 
-
 import auth.models
+auth.models.db.init_app(app)
 auth.models.init_app(app)
 
 import auth.views
 app.register_blueprint(auth.views.app)
 
+import auth.admin
+auth.admin.init_admin(app)
 
 # -------------------------------------------------------------
 # Development server setup
@@ -67,9 +69,13 @@ if app.debug:
     app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
 if __name__ == "__main__":
+    # for convenience in setting up OAuth ids and secretes we use the example.com domain.
+    # This should allow you to circumvent limits put on localhost/127.0.0.1 usage
+    # Just map dev.example.com on 127.0.0.1 ip address.
     host_bind = os.environ.get('SERVER_HOST', "0.0.0.0")
     port_bind = int(os.environ.get('SERVER_PORT', 5055))
     logging.debug("PRODUCTION: %s" % PRODUCTION)
     logging.debug("app.debug: %s" % app.debug)
     logging.debug("app.testing: %s" % app.testing)
+    logging.debug("Don't forget to map dev.example.com on 127.0.0.1 ip address")
     app.run(host_bind, port_bind)

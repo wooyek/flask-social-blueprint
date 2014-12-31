@@ -1,0 +1,114 @@
+.wrap {
+    padding-bottom: 80px;
+    background: #EEE;
+}
+footer {
+    border-top: 1px solid #CCC; padding: 3em;
+}
+
+.form-signin {
+    padding: 15px 20px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.social-login-buttons a {
+    display: block;
+    margin: 15px 20px;
+    font-size: 1.7em;
+    color: #EEE;
+}
+.social-login-buttons a:hover {
+    color: #FFF;
+}
+
+
+.social-login-buttons a .fa {
+    float: left;
+    line-height: inherit;
+}
+
+.nav>li>a:hover {
+    background: #DDD;
+}
+
+.social-google {
+  background-color: #da573b;
+  border-color: #be5238;
+}
+
+.social-google:hover {
+  background-color: #be5238;
+  border-color: #9b4631;
+}
+
+.social-twitter {
+  background-color: #1daee3;
+  border-color: #3997ba;
+}
+
+.social-twitter:hover {
+  background-color: #3997ba;
+  border-color: #347b95;
+}
+
+.social-facebook {
+  background-color: #4c699e;
+  border-color: #47618d;
+}
+
+.social-facebook:hover {
+  background-color: #47618d;
+  border-color: #3c5173;
+}
+
+.social-linkedin {
+  background-color: #4875B4;
+  border-color: #466b99;
+}
+
+.social-linkedin:hover {
+  background-color: #466b99;
+  border-color: #3b5a7c;
+}
+
+.social-github {
+  background-color: #444;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.social-github:hover {
+  background-color: #303030;
+}

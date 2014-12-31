@@ -1,0 +1,13 @@
+{% extends "body.html" %}
+{% block body %}
+    <div class="wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    {% include "bootstrap/alerts.html" %}
+                </div>
+            </div>
+        </div>
+        {% block main %}{% endblock %}
+    </div>
+{% endblock %}

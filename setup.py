@@ -4,7 +4,6 @@ import sys
 import os
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
-import pypandoc
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 SRC_DIR = os.path.join(ROOT_DIR, 'src')

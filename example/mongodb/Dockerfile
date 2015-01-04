@@ -22,7 +22,7 @@ RUN curl -k -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm -
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN git clone https://github.com/srault95/flask-social-blueprint.git -b mongodb /data/flask-social-blueprint
+RUN git clone https://github.com/wooyek/flask-social-blueprint.git -b mongodb /data/flask-social-blueprint
 
 WORKDIR /data/flask-social-blueprint/example/mongodb
 

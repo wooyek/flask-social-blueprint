@@ -98,5 +98,8 @@ SOCIAL_BLUEPRINT = {
     },
 }
 
-# Settings with secrets 
-from website.settings_local import *
+# Settings with secrets
+try:
+    from website.settings_local import *
+except ImportError:
+    pass    

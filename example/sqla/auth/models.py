@@ -10,16 +10,10 @@ from sqlalchemy import orm
 from flask import current_app
 from flask_babel import gettext as _
 from flask_sqlalchemy import SQLAlchemy
-from flask_security import UserMixin, RoleMixin, SQLAlchemyUserDatastore, Security
+from flask_security import UserMixin, RoleMixin, Security, SQLAlchemyUserDatastore
 
-from website.database import  db
+from website.database import db
 
-# Flask-Login
-# https://flask-login.readthedocs.org/en/latest/
-
-# logging.info("LoginManager.init_app: %s" % app)
-# login_manager = LoginManager()
-# login_manager.init_app(app)
 
 # Setup Flask-Security
 # http://pythonhosted.org/Flask-Security/quickstart.html#id1
@@ -70,12 +64,6 @@ class User(db.Model, UserMixin):
     def social_connections(self):
         return SocialConnection.query.filter(SocialConnection.user_id == self.id).all()
 
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return None #User.get(user_id)
-#
-
-
 # Setup Flask-Social
 # http://pythonhosted.org/Flask-Social/#configuration
 
@@ -113,7 +101,8 @@ class SocialConnection(db.Model):
                 raise Exception(_(msg))
             conflict = User.query.filter(User.email == email).first()
             if conflict:
-                msg = _("Cannot create new user, email {} is already used. Login and then connect external profile.").format(email)
+                msg = "Cannot create new user, email {} is already used. Login and then connect external profile."
+                msg = _(msg).format(email)
                 logging.warning(msg)
                 raise Exception(msg)
 
@@ -146,6 +135,9 @@ def send_mail(msg):
 
 
 def init_app(app):
+
+	# Flask-Login
+	# https://flask-login.readthedocs.org/en/latest/
     from flask_login import LoginManager
     login_manager = LoginManager()
     login_manager.init_app(app)

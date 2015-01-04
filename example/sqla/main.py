@@ -67,9 +67,11 @@ if app.debug:
     app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
 if __name__ == "__main__":
-    host_bind = os.environ.get('SERVER_HOST', "0.0.0.0")
-    port_bind = int(os.environ.get('SERVER_PORT', 5055))
+    # for convenience in setting up OAuth ids and secretes we use the example.com domain.
+    # This should allow you to circumvent limits put on localhost/127.0.0.1 usage
+    # Just map dev.example.com on 127.0.0.1 ip address.
     logging.debug("PRODUCTION: %s" % PRODUCTION)
     logging.debug("app.debug: %s" % app.debug)
     logging.debug("app.testing: %s" % app.testing)
-    app.run(host_bind, port_bind)
+    logging.debug("Don't forget to map dev.example.com on 127.0.0.1 ip address")
+    app.run("dev.example.com", 5055)

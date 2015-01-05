@@ -9,5 +9,3 @@ To run this example:
 5. Run app engine development server
 6. Open http://dev.example.com:5055 your browser
 
-
-

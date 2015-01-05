@@ -55,8 +55,23 @@ app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLD
 app.debug = DEBUG
 app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 
-from website import settings
-app.config.from_object(settings)
+
+# -------------------------------------------------------------
+# Load settings from separate modules
+# -------------------------------------------------------------
+
+import website.settings
+app.config.from_object(website.settings)
+
+config = "website.settings_prd" if PRODUCTION else "website.settings_dev"
+import importlib
+try:
+    cfg = importlib.import_module(config)
+    logging.debug("Loaded %s" % config)
+    app.config.from_object(cfg)
+except ImportError:
+    logging.warning("Local settings module not found: %s", config)
+
 
 # -------------------------------------------------------------
 # Custom add ons

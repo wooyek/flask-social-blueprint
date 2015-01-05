@@ -44,12 +44,14 @@ app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 import website.settings
 app.config.from_object(website.settings)
 
+config = "website.settings_prd" if PRODUCTION else "website.settings_dev"
+import importlib
 try:
-    # Override settings with secrets, keep them secure and out of repository
-    from website import settings_local
-    app.config.from_object(settings_local)
+    cfg = importlib.import_module(config)
+    logging.debug("Loaded %s" % config)
+    app.config.from_object(cfg)
 except ImportError:
-    pass
+    logging.warning("Local settings module not found: %s", config)
 
 
 # -------------------------------------------------------------

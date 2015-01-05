@@ -1,6 +1,3 @@
-#requis flask-admin
-wtforms<2.0
-
 Babel>=1.3
 Flask>=0.10.1
 Flask-Babel>=0.9
@@ -13,6 +10,7 @@ Flask-Security>=1.7.2
 Flask-WTF>=0.9.5
 Jinja2>=2.7.2
 MarkupSafe>=0.19
+WTForms>=1.0.5
 Werkzeug>=0.9.4
 blinker>=1.3
 facebook-sdk>=0.4.0
@@ -43,5 +41,5 @@ flask-babelex
 https://github.com/mrjoes/flask-admin/tarball/master
 
 #flask-social-blueprint
-https://github.com/srault95/flask-social-blueprint/tarball/mongodb
+flask-social-blueprint
 

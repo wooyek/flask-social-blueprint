@@ -1,36 +1,30 @@
 # coding=utf-8
 # Created 2014 by Janusz Skonieczny 
 
-# coding=utf-8
-#
-# Copyright 2010 Brave Labs sp. z o.o.
-# All rights reserved.
-#
-# This source code and all resulting intermediate files are CONFIDENTIAL and
-# PROPRIETY TRADE SECRETS of Brave Labs sp. z o.o.
-# Use is subject to license terms. See NOTICE file of this project for details.
-
 import logging
 import os
 
 SRC_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # ============================================================================
-#  a flask settings
-#  http://flask.pocoo.org/docs/config/#configuring-from-files
+# a flask settings
+# http://flask.pocoo.org/docs/config/#configuring-from-files
 # ============================================================================
 
 SECRET_KEY = os.environ.get('SECRET_KEY', '47e585de7f22984d5ee291c2f31412384bfc32d0')
 FLASH_MESSAGES = True
 
-MONGODB_SETTINGS = dict(
-    db=os.environ.get('MONGODB_DATABASE', 'flask_social_blueprint'),
-    host=os.environ.get('MONGODB_PORT_27017_TCP_ADDR', '127.0.0.1'),
-    port=int(os.environ.get('MONGODB_PORT_27017_TCP_PORT', 27017)),
-    username=os.environ.get('MONGODB_USERNAME', None),
-    password=os.environ.get('MONGODB_PASSWORD', None),
-    tz_aware=False if 'MONGODB_NO_TZ_AWARE' in os.environ else True,
-)
+# Flask-MongoEngine
+# http://flask-mongoengine.readthedocs.org/en/latest/#configuration
+
+MONGODB_SETTINGS = {
+    'db': 'flask_social_blueprint',
+    'host': '127.0.0.1',
+    'port': 27017,
+    'username': None,
+    'password': None,
+    'tz_aware': True,
+}
 
 # Flask-Login
 # https://flask-login.readthedocs.org/en/latest/#protecting-views
@@ -39,8 +33,6 @@ LOGIN_DISABLED = False
 
 # Flask-Security
 # http://pythonhosted.org/Flask-Security/configuration.html
-
-#SECURITY_URL_PREFIX = '/_social'
 
 SECURITY_PASSWORD_SALT = "abc"
 # SECURITY_PASSWORD_HASH = "bcrypt"  # requires py-bcrypt
@@ -103,8 +95,3 @@ SOCIAL_BLUEPRINT = {
     },
 }
 
-# Settings with secrets
-try: 
-    from settings_local import *
-except ImportError:
-    pass    

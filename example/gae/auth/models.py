@@ -10,13 +10,6 @@ from flask import current_app
 from flask_babel import gettext as _, ngettext as __
 from flask_security import UserMixin, RoleMixin
 
-# Flask-Login
-# https://flask-login.readthedocs.org/en/latest/
-
-# logging.info("LoginManager.init_app: %s" % app)
-# login_manager = LoginManager()
-# login_manager.init_app(app)
-
 # Setup Flask-Security
 # http://pythonhosted.org/Flask-Security/quickstart.html#id1
 
@@ -104,7 +97,8 @@ class SocialConnection(ndb.Model):
                 raise Exception(_(msg))
             conflict = User.query(User.email == email).get()
             if conflict:
-                msg = _("Cannot create new user, email {} is already used. Login and then connect external profile.").format(email)
+                msg = "Cannot create new user, email {} is already used. Login and then connect external profile."
+                msg = _(msg).format(email)
                 logging.warning(msg)
                 raise Exception(msg)
 

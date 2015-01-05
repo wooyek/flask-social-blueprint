@@ -76,8 +76,26 @@ What’s missing?
 This is just authentication blueprint there is no templates, models and
 stuff that you would want to customize yourself.
 
+What to do more?
+----------------
+
+1. More providers
+2. Make Flask-Security dependency optional
+
 Examples
 --------
+
+The core of this module has no GUI, but examples have a nice login
+and profile page to show it it works. Checkout the `demo`_.
+
+.. image:: https://github.com/wooyek/flask-social-blueprint/raw/master/docs/login-form.png
+   :alt: Flask social blueprint login form example
+   :align: center
+
+
+.. image:: https://github.com/wooyek/flask-social-blueprint/raw/master/docs/user-profile.png
+   :alt: Flask social blueprint user profile example
+   :align: center
 
 The example has a working model and templates, has a bunch of
 dependencies like `Flask-SLQAlchemy`_, you can take it as a wire frame
@@ -97,26 +115,53 @@ requirements come from `Flask-security`_.
 2. for `Google App Engine <example/gae/README.md>`_
 3. for `MongoDB <example/mongodb/README.rst>`_
 
-What to do more?
-----------------
+Setup OAuth with different providers
+------------------------------------
 
-1. More providers
-2. Make Flask-Security dependency optional
+This blueprint needs client id's and secrets provided by social services you
+want to integrate with, here's where you setup them.
 
-Demo screen shots
------------------
+In examples we use http://dev.example.com:5055 URL to overcome limitations
+posed on localhost and 127.0.0.1 when setting up integrations.
+The http:://example.com is guaranteed to be valid and may be used by
+anyone in demos and documentation. Just map `dev.example.com` to 127.0.0.1
+and you're good to go.
 
-The core of this module has no GUI, but examples have a nice login
-and profile page to show it it works. Checkout the `demo`_.
+Callback URLs use the name of the provider at the end.
+Obtain client ids and secrets from OAuth providers using
+main URL http://dev.example.com:5055 and callbacks URLS like these:
 
-.. image:: https://github.com/wooyek/flask-social-blueprint/raw/master/docs/login-form.png
-   :alt: Flask social blueprint login form example
-   :align: center
+- http://dev.example.com:5055/_social/callback/Google
+- http://dev.example.com:5055/_social/callback/Facebook
+- http://dev.example.com:5055/_social/callback/Twitter
+- http://dev.example.com:5055/_social/callback/Github
+
+Twitter
+^^^^^^^
+
+Create new application here: https://apps.twitter.com/app/new
+
+Google
+^^^^^^
+
+1. Create new project here: https://console.developers.google.com/project
+2. In APIs & auth > Credentials create Client ID
+3. Update consent screen details, at least product name, home page and email address
+4. Enable Google+ API
+
+GitHub
+^^^^^^
+
+Create new application here: https://github.com/settings/applications/new
+
+Facebook
+^^^^^^^^
+
+Create new application here: https://developers.facebook.com/apps/
+
+Setup `Valid OAuth redirect URIs` in Settings > Advanced > Security
 
 
-.. image:: https://github.com/wooyek/flask-social-blueprint/raw/master/docs/user-profile.png
-   :alt: Flask social blueprint user profile example
-   :align: center
 
 .. _Flask-Social: https://pythonhosted.org/Flask-Social/
 .. _Flask-Security: https://pythonhosted.org/Flask-Security/

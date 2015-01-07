@@ -43,5 +43,5 @@ flask-babelex
 https://github.com/mrjoes/flask-admin/tarball/master
 
 #flask-social-blueprint
-https://github.com/srault95/flask-social-blueprint/tarball/mongodb
+-e https://github.com/wooyek/flask-social-blueprint/#egg=flask-social-blueprint
 

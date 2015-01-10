@@ -40,6 +40,5 @@ https://github.com/MongoEngine/flask-mongoengine/tarball/master
 flask-babelex
 https://github.com/mrjoes/flask-admin/tarball/master
 
-#flask-social-blueprint
 flask-social-blueprint
-
+git+https://github.com/wooyek/flask-social-blueprint.git#egg=flask-social-blueprint

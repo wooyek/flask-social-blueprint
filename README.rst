@@ -115,6 +115,35 @@ requirements come from `Flask-security`_.
 2. for `Google App Engine <example/gae/README.md>`_
 3. for `MongoDB <example/mongodb/README.rst>`_
 
+
+Vagrant
+-------
+
+You can always use our `vagrant`_. It should set up everything needed for tests or
+development. Simply run
+
+.. code:: sh
+
+    vagrant up --provision
+
+and this should set up everything you need:
+
+
+The code will be kept in ``/vagrant/`` directory.
+You have 3 venv's setup:
+
+* dev – for development
+* sqla – for sqla example
+* mongodb – for mongodb example
+
+you can active them using `virtualenvwrapper`_. For example to activate dev:
+
+.. code:: sh
+
+    workon dev
+
+
+
 Setup OAuth with different providers
 ------------------------------------
 
@@ -170,3 +199,5 @@ Setup `Valid OAuth redirect URIs` in Settings > Advanced > Security
 .. _plain simple OOP: src/flask_social_blueprint/providers.py
 .. _module based provider: https://github.com/mattupstate/flask-social/blob/develop/flask_social/core.py#L127
 .. _function search crap: https://github.com/mattupstate/flask-social/tree/develop/flask_social/providers
+.. _virtualenvwrapper: http://virtualenvwrapper.readthedocs.org/en/latest/
+.. _vagrant: https://www.vagrantup.com/

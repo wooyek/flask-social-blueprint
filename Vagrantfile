@@ -21,4 +21,5 @@ SCRIPT
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.provision "shell", inline: $script
+  config.vm.network "private_network", ip: "192.168.113.4"
 end

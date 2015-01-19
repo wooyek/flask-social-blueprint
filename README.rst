@@ -123,7 +123,7 @@ want to integrate with, here's where you setup them.
 
 In examples we use http://dev.example.com:5055 URL to overcome limitations
 posed on localhost and 127.0.0.1 when setting up integrations.
-The http:://example.com is guaranteed to be valid and may be used by
+The http://example.com URL is guaranteed to be valid and may be used by
 anyone in demos and documentation. Just map `dev.example.com` to 127.0.0.1
 and you're good to go.
 

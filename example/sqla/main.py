@@ -87,5 +87,9 @@ if __name__ == "__main__":
     logging.debug("PRODUCTION: %s" % PRODUCTION)
     logging.debug("app.debug: %s" % app.debug)
     logging.debug("app.testing: %s" % app.testing)
-    logging.debug("Don't forget to map dev.example.com on 127.0.0.1 ip address")
-    app.run("dev.example.com", 5055)
+
+    # making your the server externally visible simplifies networking configuration
+    # for local vagrant based development
+    logging.warn("We're binding to all your ip addresses. Don't forget to map `dev.example.com` to one of them")
+    logging.warn("For more information see http://bit.ly/1xKtf8j")
+    app.run(host="0.0.0.0", port=5055)

@@ -116,8 +116,8 @@ requirements come from `Flask-security`_.
 3. for `MongoDB <example/mongodb/README.rst>`_
 
 
-Vagrant
--------
+Vagrant virtual development environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can always use our `vagrant`_. It should set up everything needed for tests or
 development. Simply run
@@ -136,13 +136,23 @@ You have 3 venv's setup:
 * sqla – for sqla example
 * mongodb – for mongodb example
 
-you can active them using `virtualenvwrapper`_. For example to activate dev:
+you can active them using `virtualenvwrapper`_. For example to activate mongodb:
 
 .. code:: sh
 
-    workon dev
+    workon mongodb
+    python /vagrant/example/mongodb/main.py
 
+Google App Engine example hav to be run little bit different, it needs GAE development server
 
+.. code:: sh
+
+    workon gae
+    python ~/google_appengine/dev_appserver.py --host 0.0.0.0 --port 5055 /vagrant/example/gae/
+
+Currently you cannot develop with and without vagrant because `flask-social-blueprint/example/gae/lib/`
+folder is shared and
+cause problems if you want to
 
 Setup OAuth with different providers
 ------------------------------------
@@ -151,9 +161,9 @@ This blueprint needs client id's and secrets provided by social services you
 want to integrate with, here's where you setup them.
 
 In examples we use http://dev.example.com:5055 URL to overcome limitations
-posed on localhost and 127.0.0.1 when setting up integrations.
+posed on `localhost` and `127.0.0.1` when setting up integrations.
 The http://example.com URL is guaranteed to be valid and may be used by
-anyone in demos and documentation. Just map `dev.example.com` to 127.0.0.1
+anyone in demos and documentation. Just map `dev.example.com` to `127.0.0.1`
 and you're good to go.
 
 Callback URLs use the name of the provider at the end.

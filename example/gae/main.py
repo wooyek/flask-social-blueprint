@@ -49,7 +49,7 @@ except ImportError:
     import sys
     sys.path.append(os.path.join(os.path.dirname(os.path.dirname(SRC_DIR)), "src"))
 
-from flask import Flask, request
+from flask import Flask
 
 app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLDER, static_url_path=STATIC_URL)
 app.debug = DEBUG
@@ -103,4 +103,5 @@ if app.debug:
 
         @app.before_request
         def setup_wsgi_errors():
+            from flask import request
             request.environ['wsgi.errors'] = sys.stderr

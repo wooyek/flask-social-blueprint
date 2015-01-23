@@ -49,7 +49,7 @@ CSRF_ENABLED = True
 
 # Flask-Babel
 # http://pythonhosted.org/Flask-Babel/
-BABEL_DEFAULT_LOCALE = "pl"
+BABEL_DEFAULT_LOCALE = "en"
 BABEL_DEFAULT_TIMEZONE = "UTC"
 
 # Flask-Mail
@@ -89,8 +89,3 @@ SOCIAL_BLUEPRINT = {
     },
 }
 
-# Settings with secrets
-try:
-    from website.settings_local import *
-except ImportError:
-    pass    

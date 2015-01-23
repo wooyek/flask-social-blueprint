@@ -10,3 +10,19 @@ To run this example:
 6. Open http://dev.example.com:5055 your browser
 
  [1]: https://github.com/wooyek/flask-social-blueprint#setup-oauth-with-different-providers
+
+## Google App Engine needs requirements installed in-place
+
+The way you deploy apps to GAE you need to get everything you need inside a project directory
+and import all the dependencies as local modules.
+
+Tp simplify things a little we can install requirements into a special `lib` folder within a project directory,
+then during application startup we'll put this folder on `sys.path`
+
+Install packages here with:
+
+    pip install --target=./lib -r requirements.txt
+
+Or on windows:
+
+    pip install --target=.\lib -r requirements.txt

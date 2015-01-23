@@ -116,43 +116,40 @@ requirements come from `Flask-security`_.
 3. for `MongoDB <example/mongodb/README.rst>`_
 
 
-Vagrant virtual development environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Development environment with Vagrant
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can always use our `vagrant`_. It should set up everything needed for tests or
-development. Simply run
+development. This should set up everything you need:
 
 .. code:: sh
 
     vagrant up --provision
 
-and this should set up everything you need:
-
-
 The code will be kept in ``/vagrant/`` directory.
-You have 3 venv's setup:
+You have will get 3 python virtual enviroments setup:
 
-* dev – for development
+* gae – for gae example
 * sqla – for sqla example
 * mongodb – for mongodb example
 
-you can active them using `virtualenvwrapper`_. For example to activate mongodb:
+Activate one of them using `virtualenvwrapper`_. For example to activate mongodb:
 
 .. code:: sh
 
     workon mongodb
     python /vagrant/example/mongodb/main.py
 
-Google App Engine example hav to be run little bit different, it needs GAE development server
+Google App Engine example have to be run little bit different, 
+it needs GAE development server layer wrapping Flask.
 
 .. code:: sh
 
     workon gae
     python ~/google_appengine/dev_appserver.py --host 0.0.0.0 --port 5055 /vagrant/example/gae/
 
-Currently you cannot develop with and without vagrant because `flask-social-blueprint/example/gae/lib/`
-folder is shared and
-cause problems if you want to
+When you develope with and without vagrant because please remeber that `flask-social-blueprint/example/gae/lib/`
+will be shared between machines, it may cause problems.
 
 Setup OAuth with different providers
 ------------------------------------
@@ -199,7 +196,6 @@ Facebook
 Create new application here: https://developers.facebook.com/apps/
 
 Setup `Valid OAuth redirect URIs` in Settings > Advanced > Security
-
 
 
 .. _Flask-Social: https://pythonhosted.org/Flask-Social/

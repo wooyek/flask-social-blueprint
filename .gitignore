@@ -99,10 +99,10 @@ $RECYCLE.BIN/
 *.msp
 
 .pve/
+.vagrant/
 example/sqla/website/settings_prd.py
 example/gae/website/settings_prd.py
-example/sqla/website/settings_local.py
-.vagrant/
+example/sqla/website/settings_prd.py
 example/gae/website/settings_dev.py
 example/mongodb/website/settings_dev.py
 example/sqla/website/settings_dev.py

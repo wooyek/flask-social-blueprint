@@ -2,6 +2,7 @@
 # Copyright 2014 Janusz Skonieczny
 import sys
 import os
+import uuid
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
 
@@ -9,7 +10,10 @@ ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 SRC_DIR = os.path.join(ROOT_DIR, 'src')
 sys.path.append(SRC_DIR)
 
-install_requires = parse_requirements(os.path.join(os.path.dirname(__file__), "requirements.txt"))
+install_requires = parse_requirements(
+    os.path.join(os.path.dirname(__file__), "requirements.txt"),
+    session = uuid.uuid1()
+)
 with open("README.rst") as readme:
     long_description = readme.read()
 

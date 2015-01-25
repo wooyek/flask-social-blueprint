@@ -11,29 +11,27 @@ $script = <<SCRIPT
 
 	echo "export WORKON_HOME=/home/vagrant/.virtualenvs" >> /home/vagrant/.bashrc
 	echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/vagrant/.bashrc
-
 	export WORKON_HOME=/home/vagrant/.virtualenvs
-
 	source /usr/local/bin/virtualenvwrapper.sh
 
-	echo "Setting up dev environent"
-	mkvirtualenv gae
+	echo "Setting up virtual environments"
+	mkvirtualenv dev
+	/home/vagrant/.virtualenvs/dev/bin/pip install -r /vagrant/requirements.txt
+	/home/vagrant/.virtualenvs/vde/bin/pip install -r /vagrant/requirements-dev.txt
 
-	/home/vagrant/.virtualenvs/gae/bin/pip install -r /vagrant/requirements.txt
-	/home/vagrant/.virtualenvs/gae/bin/pip install -r /vagrant/requirements-dev.txt
-
-	wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.17.zip
-	unzip google_appengine_1.9.17.zip
-
-	echo "Setting up sqla example environent"
+	echo "Setting up sqla example environment"
 	mkvirtualenv sqla
-
 	/home/vagrant/.virtualenvs/sqla/bin/pip install -r /vagrant/example/sqla/requirements.txt
 
-	echo "Setting up mongodb example environent"
+	echo "Setting up mongodb example environment"
 	mkvirtualenv mongodb
-
 	/home/vagrant/.virtualenvs/mongodb/bin/pip install -r /vagrant/example/mongodb/requirements.txt
+
+	echo "Setting up gae example environment"
+	mkvirtualenv gae
+    /home/vagrant/.virtualenvs/gae/bin/pip install --target=/vagrant/example/gae/lib -r /vagrant/example/gae/requirements.txt
+	wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.17.zip
+	unzip google_appengine_1.9.17.zip
 
 	chown -R vagrant:vagrant /home/vagrant/.virtualenvs
 

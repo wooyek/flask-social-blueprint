@@ -186,7 +186,8 @@ class Github(BaseProvider):
             raise Exception(_("Could not load emails data from from Github API"))
         emails = json.loads(r.text or r.content)
 
-        name_split = profile.get('name', "").split(" ", 1)
+        name = profile.get('name') or ""
+        name_split = name.split(" ", 1)
         data = {
             "provider": "Github",
             "profile_id": str(profile["id"]),

@@ -1,7 +1,7 @@
 # coding=utf-8
 # Copyright 2013 Janusz Skonieczny
 import logging
-from flask import Blueprint, url_for, request, current_app
+from flask import Blueprint, url_for, request, current_app, session
 from flask_login import login_user, current_user
 from flask_security.utils import do_flash
 from flask_babel import gettext as _
@@ -31,6 +31,7 @@ class SocialBlueprint(Blueprint):
         """
         callback_url = url_for(".callback", provider=provider, _external=True)
         provider = self.get_provider(provider)
+        session['next'] = request.args.get('next') or ''
         return provider.authorize(callback_url)
 
     def callback(self, provider):
@@ -68,7 +69,8 @@ class SocialBlueprint(Blueprint):
         return self.login_redirect(profile, provider)
 
     def login_redirect(self, profile, provider):
-        return redirect("/")
+        next_ = session.pop('next', '')
+        return redirect(next_ or '/')
 
     def login_failed_redirect(self, profile, provider):
         return redirect("/")

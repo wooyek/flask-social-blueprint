@@ -78,7 +78,7 @@ class SocialBlueprint(Blueprint):
 
     @classmethod
     def create_bp(cls, name, connection_adapter, providers, *args, **kwargs):
-        bp = SocialBlueprint(name, __name__, connection_adapter, providers, *args, **kwargs)
+        bp = cls(name, __name__, connection_adapter, providers, *args, **kwargs)
         bp.route('/login/<provider>', endpoint="login")(bp.authenticate)
         bp.route('/callback/<provider>', endpoint="callback")(bp.callback)
         return bp

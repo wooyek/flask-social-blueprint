@@ -136,7 +136,7 @@ class Facebook(BaseProvider):
         import facebook
 
         graph = facebook.GraphAPI(access_token)
-        profile = graph.get_object("me?fields=email")
+        profile = graph.get_object("me", fields="email")
         profile_id = profile['id']
         data = {
             "provider": "Facebook",

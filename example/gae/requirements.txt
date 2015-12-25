@@ -11,4 +11,5 @@ python-twitter
 PyOpenSSL
 ndg-httpsclient
 pyasn1
+urllib3
 

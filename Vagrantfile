@@ -48,6 +48,7 @@ $script = <<SCRIPT
     # ======================================
 	echo "Setting up gae example environment"
 	mkvirtualenv gae
+	sudo rm -r /vagrant/example/gae/lib
     /home/vagrant/.virtualenvs/gae/bin/pip install --target=/vagrant/example/gae/lib -r /vagrant/example/gae/requirements.txt
     wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.30.zip
 	unzip google_appengine_1.9.30.zip

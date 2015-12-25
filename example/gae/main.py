@@ -61,6 +61,16 @@ if not PRODUCTION:
     from google.appengine.tools.devappserver2.python import sandbox
     sandbox._WHITE_LIST_C_MODULES += ['_ctypes', 'gestalt', 'pwd']
 
+else:
+    # This will try to workaround a SSL problem on GAE
+    # http://stackoverflow.com/questions/29416563/google-app-engine-ssl-insecureplatformwarning
+    # https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning
+    from urllib3.connection import UnverifiedHTTPSConnection
+    from urllib3.connectionpool import HTTPSConnectionPool
+
+    # Override the default Connection class for the HTTPSConnectionPool.
+    HTTPSConnectionPool.ConnectionCls = UnverifiedHTTPSConnection
+
 # -------------------------------------------------------------
 # Load settings from separate modules
 # -------------------------------------------------------------

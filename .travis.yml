@@ -1,0 +1,21 @@
+language: python
+
+python:
+  - "2.7"
+  - "3.5"
+
+sudo: false
+
+cache:
+  - apt
+  - pip
+
+install:
+  - pip install -r requirements.txt -r requirements-dev.txt
+
+script: nosetests
+
+branches:
+  only:
+    - develop
+    - master

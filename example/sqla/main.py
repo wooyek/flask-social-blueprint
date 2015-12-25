@@ -44,7 +44,7 @@ app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 import website.settings
 app.config.from_object(website.settings)
 
-config = "website.settings_prd" if PRODUCTION else "website.settings_dev"
+config = "website.settings.production" if PRODUCTION else "website.settings.local"
 import importlib
 try:
     cfg = importlib.import_module(config)

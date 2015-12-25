@@ -5,6 +5,7 @@ from flask import Blueprint, url_for, request, current_app, session
 from flask_login import login_user, current_user
 from flask_security.utils import do_flash
 from flask_babel import gettext as _
+from flask_oauth import OAuthException
 
 from werkzeug.exceptions import abort
 from werkzeug.local import LocalProxy
@@ -39,7 +40,11 @@ class SocialBlueprint(Blueprint):
         Handles 3rd party callback and processes it's data
         """
         provider = self.get_provider(provider)
-        return provider.authorized_handler(self.login)(provider=provider)
+        try:
+            return provider.authorized_handler(self.login)(provider=provider)
+        except OAuthException as ex:
+            logging.error("Data: %s", ex.data)
+            raise
 
     def login(self, raw_data, provider):
         logger.debug("raw_data: %s" % raw_data)

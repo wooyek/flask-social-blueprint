@@ -111,3 +111,4 @@ example/gae/website/settings/production.py
 example/sqla/website/settings/production.py
 example/gae/website/settings/local.py
 example/sqla/website/settings/local.py
+example/sqla/website/db.sqlite

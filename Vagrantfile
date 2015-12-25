@@ -11,6 +11,7 @@ $script = <<SCRIPT
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install -y htop git unzip
+    sudo apt-get install -y build-essential libffi-dev libssl-dev
     sudo apt-get install -y python python-dev python-pip python-virtualenv
 	sudo pip install virtualenvwrapper
 

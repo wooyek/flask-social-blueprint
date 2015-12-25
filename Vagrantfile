@@ -13,6 +13,7 @@ $script = <<SCRIPT
     sudo apt-get install -y htop git unzip
     sudo apt-get install -y build-essential libffi-dev libssl-dev
     sudo apt-get install -y python python-dev python-pip python-virtualenv
+    sudo apt-get install -y mongodb
 	sudo pip install virtualenvwrapper
 
     # Change Time Zone

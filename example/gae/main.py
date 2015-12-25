@@ -55,6 +55,11 @@ app = Flask(__name__, template_folder=TEMPLATE_FOLDER, static_folder=STATIC_FOLD
 app.debug = DEBUG
 app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 
+if not PRODUCTION:
+    # enable jinja debugging info in GAE SDK
+    # http://jinja.pocoo.org/docs/faq/#my-tracebacks-look-weird-what-s-happening
+    from google.appengine.tools.devappserver2.python import sandbox
+    sandbox._WHITE_LIST_C_MODULES += ['_ctypes', 'gestalt', 'pwd']
 
 # -------------------------------------------------------------
 # Load settings from separate modules
@@ -63,7 +68,7 @@ app.testing = DEBUG  # WARNING: this will disable login_manager decorators
 import website.settings
 app.config.from_object(website.settings)
 
-config = "website.settings_prd" if PRODUCTION else "website.settings_dev"
+config = "website.settings.production" if PRODUCTION else "website.settings.local"
 import importlib
 try:
     cfg = importlib.import_module(config)

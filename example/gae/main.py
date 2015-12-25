@@ -63,13 +63,16 @@ if not PRODUCTION:
 
 else:
     # This will try to workaround a SSL problem on GAE
+
     # http://stackoverflow.com/questions/29416563/google-app-engine-ssl-insecureplatformwarning
-    # https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning
     from urllib3.connection import UnverifiedHTTPSConnection
     from urllib3.connectionpool import HTTPSConnectionPool
-
     # Override the default Connection class for the HTTPSConnectionPool.
     HTTPSConnectionPool.ConnectionCls = UnverifiedHTTPSConnection
+
+    # https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning
+    # import urllib3.contrib.pyopenssl
+    # urllib3.contrib.pyopenssl.inject_into_urllib3()
 
 # -------------------------------------------------------------
 # Load settings from separate modules

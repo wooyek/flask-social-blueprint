@@ -6,6 +6,10 @@ override.
 
 https://github.com/wooyek/flask-social-blueprint
 
+.. image:: https://travis-ci.org/wooyek/flask-social-blueprint.svg
+
+.. image:: https://coveralls.io/repos/wooyek/flask-social-blueprint/badge.svg?branch=develop&service=github :target: https://coveralls.io/github/wooyek/flask-social-blueprint?branch=develop
+
 Demo
 ----
 

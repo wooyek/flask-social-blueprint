@@ -8,7 +8,14 @@ https://github.com/wooyek/flask-social-blueprint
 
 .. image:: https://travis-ci.org/wooyek/flask-social-blueprint.svg
 
-.. image:: https://coveralls.io/repos/wooyek/flask-social-blueprint/badge.svg?branch=develop&service=github :target: https://coveralls.io/github/wooyek/flask-social-blueprint?branch=develop
+.. image:: https://coveralls.io/repos/wooyek/flask-social-blueprint/badge.svg?branch=develop&service=github 
+    :target: https://coveralls.io/github/wooyek/flask-social-blueprint?branch=develop
+
+.. image:: https://img.shields.io/pypi/v/flask-social-blueprint.svg?maxAge=2592000   
+    :target: https://pypi.python.org/pypi/flask-social-blueprint/   
+
+.. image:: https://img.shields.io/pypi/dm/flask-social-blueprint.svg?maxAge=2592000   
+    :target: https://pypi.python.org/pypi/flask-social-blueprint/
 
 Demo
 ----

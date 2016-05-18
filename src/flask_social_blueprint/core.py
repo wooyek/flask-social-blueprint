@@ -15,7 +15,7 @@ logger = logging.getLogger("flask_social_blueprint")
 
 
 class SocialBlueprint(Blueprint):
-    def __init__(self, name, import_name, connection_adapter=None, providers=None, login_redirect_url, *args, **kwargs):
+    def __init__(self, name, import_name, connection_adapter=None, providers=None, login_redirect_url='/', *args, **kwargs):
         super(SocialBlueprint, self).__init__(name, import_name, *args, **kwargs)
         self.connection_adapter = connection_adapter
         self.providers = providers or {}

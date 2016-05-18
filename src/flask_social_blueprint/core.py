@@ -15,10 +15,11 @@ logger = logging.getLogger("flask_social_blueprint")
 
 
 class SocialBlueprint(Blueprint):
-    def __init__(self, name, import_name, connection_adapter=None, providers=None, *args, **kwargs):
+    def __init__(self, name, import_name, connection_adapter=None, providers=None, login_redirect_url='/', *args, **kwargs):
         super(SocialBlueprint, self).__init__(name, import_name, *args, **kwargs)
         self.connection_adapter = connection_adapter
         self.providers = providers or {}
+	self.login_redirect_url = login_redirect_url
 
     def get_provider(self, provider_name):
         provider = self.providers[provider_name]
@@ -75,7 +76,7 @@ class SocialBlueprint(Blueprint):
 
     def login_redirect(self, profile, provider):
         next_ = session.pop('next', '')
-        return redirect(next_ or '/')
+        return redirect(next_ or self.login_redirect_url)
 
     def login_failed_redirect(self, profile, provider):
         return redirect("/")
@@ -84,8 +85,8 @@ class SocialBlueprint(Blueprint):
         return self.connection_adapter.from_profile(current_user, profile)
 
     @classmethod
-    def create_bp(cls, name, connection_adapter, providers, *args, **kwargs):
-        bp = cls(name, __name__, connection_adapter, providers, *args, **kwargs)
+    def create_bp(cls, name, connection_adapter, providers, login_redirect_url, *args, **kwargs):
+        bp = cls(name, __name__, connection_adapter, providers, login_redirect_url, *args, **kwargs)
         bp.route('/login/<provider>', endpoint="login")(bp.authenticate)
         bp.route('/callback/<provider>', endpoint="callback")(bp.callback)
         return bp
@@ -105,7 +106,10 @@ class SocialBlueprint(Blueprint):
     def init_bp(cls, app, connection_adapter, *args, **kwargs):
         config = app.config.get("SOCIAL_BLUEPRINT")
         providers = cls.setup_providers(config)
-        bp = cls.create_bp('social', connection_adapter, providers, *args, **kwargs)
+	login_redirect_url = app.config.get("SECURITY_POST_LOGIN_VIEW")
+        if login_redirect_url is None:
+            login_redirect_url = '/'
+        bp = cls.create_bp('social', connection_adapter, providers, login_redirect_url, *args, **kwargs)
         app.register_blueprint(bp)
 
 

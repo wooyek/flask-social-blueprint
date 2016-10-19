@@ -4,7 +4,7 @@ Flask-Babel>=0.9
 Flask-Security>=1.7.5
 Flask-Mail>=0.9.1
 Flask-Script==2.0.5
-Flask-SQLAlchemy
+Flask-SQLAlchemy==2.1
 facebook-sdk>=0.4.0
 google-api-python-client>=1.2
 python-twitter==3.1

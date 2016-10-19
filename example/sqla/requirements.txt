@@ -8,7 +8,7 @@ Flask-SQLAlchemy
 facebook-sdk>=0.4.0
 google-api-python-client>=1.2
 python-twitter==3.1
-PyOpenSSL
+PyOpenSSL==16.2.0
 ndg-httpsclient==0.4.2
 pyasn1
 

@@ -29,7 +29,7 @@ pymongo==3.3.0
 python-twitter==3.1
 pytz==2014.10
 requests==2.11.1
-requests-oauthlib==0.4.2
+requests-oauthlib==0.7.0
 rsa==3.1.4
 simplejson==3.6.5
 six==1.10.0

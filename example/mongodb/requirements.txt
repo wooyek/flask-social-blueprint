@@ -24,7 +24,7 @@ oauth2client==1.4.5
 oauthlib==0.7.2
 passlib==1.6.5
 pyasn1==0.1.7
-pyasn1-modules==0.0.5
+pyasn1-modules==0.0.8
 pymongo==2.7.2
 python-twitter==2.2
 pytz==2014.10

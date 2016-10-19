@@ -25,7 +25,7 @@ oauthlib==2.0.0
 passlib==1.6.5
 pyasn1==0.1.7
 pyasn1-modules==0.0.8
-pymongo==2.7.2
+pymongo==3.3.0
 python-twitter==3.1
 pytz==2014.10
 requests==2.11.1

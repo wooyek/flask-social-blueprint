@@ -9,7 +9,7 @@ facebook-sdk>=0.4.0
 google-api-python-client>=1.2
 python-twitter
 PyOpenSSL
-ndg-httpsclient
+ndg-httpsclient==0.4.2
 pyasn1
 
 

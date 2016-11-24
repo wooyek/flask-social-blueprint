@@ -7,7 +7,7 @@ Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
 facebook-sdk>=0.4.0
 google-api-python-client>=1.2
-python-twitter==3.1
+python-twitter==3.2
 PyOpenSSL==16.2.0
 ndg-httpsclient==0.4.2
 pyasn1==0.1.9

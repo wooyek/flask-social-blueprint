@@ -124,7 +124,7 @@ requirements come from `Flask-security`_.
 
 1. for `SQLAlchemy <example/sqla/README.md>`_
 2. for `Google App Engine <example/gae/README.md>`_
-3. for `MongoDB <example/mongodb/README.rst>`_
+3. for `MongoDB <example/mongodb/README.md>`_
 
 
 Development environment with Vagrant

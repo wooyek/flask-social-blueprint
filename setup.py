@@ -4,16 +4,16 @@ import sys
 import os
 import uuid
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 SRC_DIR = os.path.join(ROOT_DIR, 'src')
 sys.path.append(SRC_DIR)
 
-install_requires = parse_requirements(
-    os.path.join(os.path.dirname(__file__), "requirements.txt"),
-    session=uuid.uuid1()
-)
+install_requires = None
+with open('requirements.txt', 'r') as f:
+    install_requires = [line.rstrip()
+                    for line in f.readlines() if not line.startswith('-')]
+
 with open("README.rst") as readme:
     long_description = readme.read()
 
@@ -24,7 +24,7 @@ setup_kwargs = {
     'version': version,
     'packages': find_packages("src"),
     'package_dir': {'': 'src'},
-    'install_requires': [str(r.req) for r in install_requires],
+    'install_requires': install_requires,
 
     # "package_data": {
     #     '': ['requirements.txt']

@@ -129,7 +129,7 @@ class Google(BaseProvider):
             'profile_url': None,
             'image_url': primary_photo.get('url')
         }
-        return ExternalProfile(profile_id, data, raw_data)
+        return ExternalProfile(str(profile_id), data, raw_data)
 
 
 class Facebook(BaseProvider):

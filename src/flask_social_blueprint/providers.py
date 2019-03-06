@@ -87,22 +87,24 @@ class Google(BaseProvider):
 
     def get_profile(self, raw_data):
         access_token = raw_data['access_token']
-        import oauth2client.client as googleoauth
-        import apiclient.discovery as googleapi
+
         import httplib2
         from googleapiclient import discovery
+        import oauth2client.client as googleoauth
 
         credentials = googleoauth.AccessTokenCredentials(
             access_token=access_token,
             user_agent=''
         )
+
         http = httplib2.Http()
         http = credentials.authorize(http)
-        service = discovery.build('people', 'v1', http=http)
 
+        resource_mask = 'names,emailAddresses,photos'
+
+        service = discovery.build('people', 'v1', http=http)
         profile = service.people().get(resourceName='people/me',
-                                       personFields='names,emailAddresses,'
-                                                    'urls,photos')
+                                       personFields=resource_mask)
 
         result = profile.execute()
 
@@ -110,14 +112,13 @@ class Google(BaseProvider):
         ns = result['names']
         ps = result['photos']
 
+        profile_id = result['resourceName'].split('/')[-1]
         primary_account = [e for e in es if 'primary' in e[u'metadata']][0]
         primary_name = [n for n in ns if 'primary' in n[u'metadata']][0]
         primary_photo = [p for p in ps if 'primary' in p[u'metadata']][0]
 
-        profile_id = result['resourceName'].split('/')[-1]
-
         data = {
-            'provider': u"Google",
+            'provider': "Google",
             'profile_id': profile_id,
             'username': None,
             "email": primary_account.get('value'),

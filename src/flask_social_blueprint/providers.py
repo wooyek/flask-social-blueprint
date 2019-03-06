@@ -79,7 +79,7 @@ class Google(BaseProvider):
             },
             'request_token_params': {
                 'response_type': 'code',
-                'scope': 'https://www.googleapis.com/auth/plus.me email'
+                'scope': 'profile'
             }
         }
         defaults.update(kwargs)
@@ -90,6 +90,7 @@ class Google(BaseProvider):
         import oauth2client.client as googleoauth
         import apiclient.discovery as googleapi
         import httplib2
+        from googleapiclient import discovery
 
         credentials = googleoauth.AccessTokenCredentials(
             access_token=access_token,
@@ -97,23 +98,38 @@ class Google(BaseProvider):
         )
         http = httplib2.Http()
         http = credentials.authorize(http)
-        api = googleapi.build('plus', 'v1', http=http)
-        profile = api.people().get(userId='me').execute()
-        name = profile.get('name')
+        service = discovery.build('people', 'v1', http=http)
+
+        profile = service.people().get(resourceName='people/me',
+                                       personFields='names,emailAddresses,'
+                                                    'urls,photos')
+
+        result = profile.execute()
+
+        es = result['emailAddresses']
+        ns = result['names']
+        ps = result['photos']
+
+        primary_account = [e for e in es if 'primary' in e[u'metadata']][0]
+        primary_name = [n for n in ns if 'primary' in n[u'metadata']][0]
+        primary_photo = [p for p in ps if 'primary' in p[u'metadata']][0]
+
+        profile_id = result['resourceName'].split('/')[-1]
+
         data = {
-            'provider': "Google",
-            'profile_id': profile['id'],
+            'provider': u"Google",
+            'profile_id': profile_id,
             'username': None,
-            "email": profile.get('emails')[0]["value"],
+            "email": primary_account.get('value'),
             'access_token': access_token,
             'secret': None,
-            "first_name": name.get("givenName"),
-            "last_name": name.get("familyName"),
-            'cn': profile.get('displayName'),
-            'profile_url': profile.get('url'),
-            'image_url': profile.get('image', {}).get("url")
+            "first_name": primary_name.get("givenName"),
+            "last_name": primary_name.get("familyName"),
+            'cn': primary_name.get('displayName'),
+            'profile_url': None,
+            'image_url': primary_photo.get('url')
         }
-        return ExternalProfile(str(profile['id']), data, raw_data)
+        return ExternalProfile(profile_id, data, raw_data)
 
 
 class Facebook(BaseProvider):

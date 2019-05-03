@@ -79,7 +79,7 @@ class Google(BaseProvider):
             },
             'request_token_params': {
                 'response_type': 'code',
-                'scope': 'profile'
+                'scope': 'profile email'
             }
         }
         defaults.update(kwargs)

@@ -1,7 +1,7 @@
 Babel==2.3.4
 blinker==1.4
 facebook-sdk==2.0.0
-Flask==0.12
+Flask==1.0
 Flask-Admin==1.4.2
 Flask-Babel==0.11.1
 Flask-BabelEx==0.9.3

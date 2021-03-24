@@ -30,7 +30,7 @@ python-twitter==3.2
 pytz==2016.10
 requests==2.12.2
 requests-oauthlib==0.7.0
-rsa==3.4.2
+rsa==4.1
 simplejson==3.10.0
 six==1.10.0
 speaklater==1.3

@@ -1,4 +1,4 @@
-Babel==2.3.4
+Babel==2.9.1
 blinker==1.4
 facebook-sdk==2.0.0
 Flask==0.12
